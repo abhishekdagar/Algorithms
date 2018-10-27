@@ -1,15 +1,22 @@
-#include<stdio.h>
 
-int greatCommonDiv(int a, int b){ //used euclidian method to calculate gcd of two numbers
-  if(b==0){
-    return a;
-  }
-  return(greatCommonDiv(b , a%b));
+#include <stdio.h>
+ 
+int gcd(int, int);
+ 
+int main()
+{
+    int a, b, result;
+ 
+    printf("Enter the two numbers to find their GCD: ");
+    scanf("%d%d", &a, &b);
+    
+    result = gcd(a, b);
+    printf("The GCD of %d and %d is %d.\n", a, b, result);
 }
-int main(int argc, char const *argv[]) {
-
-int result=greatCommonDiv(35,45);
-
-printf("Greatest divider is: %d\n",result);
-  return 0;
+ 
+int gcd(int a, int b)
+{
+    if(b==0)
+     return a;
+     else return gcd(b,a%b);
 }
